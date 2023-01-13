@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="busoutgoing" format="xml">
+      <types:example format="xml" element="Bericht" location="examples/busoutgoing.xml"/>
+    </types:type>
+    <types:type name="busincoming" format="json">
+      <types:shape format="weave" example="examples/busincoming-6.json"><![CDATA[%dw 2.0
+
+type busincoming = {|
+  tijd: Number {"typeId": "int"}, 
+  aankomsttijd: Number {"typeId": "int"}, 
+  lijnNaam: String, 
+  busID: String, 
+  bedrijf: String, 
+  eindpunt: String
+|} {"example": "{\\\"tijd\\\":15,\\\"aankomsttijd\\\":32,\\\"lijnNaam\\\":\\\"\u201DLIJN1\u201D\\\",\\\"busID\\\":\\\"\u201D3LIJN1R\u201D\\\",\\\"bedrijf\\\":\\\"\u201DARRIVA\u201D\\\",\\\"eindpunt\\\":\\\"\u201DA\u201D\\\"}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#d8d9ca97-88f1-4c3a-bfa5-e7d4474330e3">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="busoutgoing"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#3139e9a3-c400-4a48-b770-88d2321fd808"/>
+</types:mule>

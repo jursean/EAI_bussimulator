@@ -1,0 +1,35 @@
+{
+  "configs": [
+    "busTijdenFlow.xml",
+    "bussim.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "com.mycompany:bussim:1.0.0-SNAPSHOT",
+  "minMuleVersion": "4.4.0",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "application-types.xml",
+        "bussim.xml",
+        "busTijdenFlow.xml",
+        "examples/busincoming-1.json",
+        "examples/busincoming-2.json",
+        "examples/busincoming-3.json",
+        "examples/busincoming-4.json",
+        "examples/busincoming-5.json",
+        "examples/busincoming-6.json",
+        "examples/busincoming.json",
+        "examples/busoutgoing.xml",
+        "log4j2.xml"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}
